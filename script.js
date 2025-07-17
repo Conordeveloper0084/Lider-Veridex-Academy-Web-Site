@@ -1,47 +1,50 @@
-// ===== GLOBAL VARIABLES =====
-let currentVisibleResults = 8 // Dastlabki ko'rinadigan natijalar soni
-const resultsPerBatch = 8 // Har bir bosishda qo'shiladigan natijalar soni
-const totalResults = 24 // Jami natijalar soni
 let isMenuOpen = false
 
-// ===== DOM ELEMENTS =====
+const carouselConfigs = {
+  classrooms: {
+    currentIndex: 0,
+    itemsPerView: 3,
+    totalItems: 0,
+    autoPlayInterval: 4000,
+    autoPlay: true,
+  },
+  teachers: {
+    currentIndex: 0,
+    itemsPerView: 3,
+    totalItems: 0,
+    autoPlayInterval: 4000,
+    autoPlay: true,
+  },
+  results: {
+    currentIndex: 0,
+    itemsPerView: 3,
+    totalItems: 0,
+    autoPlayInterval: 4000,
+    autoPlay: true,
+  },
+}
+
 const navbar = document.getElementById("navbar")
 const mobileMenuBtn = document.getElementById("mobileMenuBtn")
 const mobileMenu = document.getElementById("mobileMenu")
-const showMoreBtn = document.getElementById("showMoreBtn")
-const closeBtn = document.getElementById("closeBtn")
-const resultsGrid = document.getElementById("resultsGrid")
-const allResultCards = document.querySelectorAll("#resultsGrid .result-card") // Barcha natija kartochkalarini olamiz
 
-// ===== INITIALIZATION =====
 document.addEventListener("DOMContentLoaded", () => {
   initializeApp()
 })
 
 function initializeApp() {
   setupEventListeners()
-  updateResultsVisibility() // Natijalarni dastlabki holatda ko'rsatish
   setupScrollAnimations()
   setupNavbarScroll()
+  initializeCarousels()
+  updateCarouselResponsiveness()
 }
 
-// ===== EVENT LISTENERS =====
 function setupEventListeners() {
-  // Mobile menu toggle
   if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener("click", toggleMobileMenu)
   }
 
-  // Results buttons
-  if (showMoreBtn) {
-    showMoreBtn.addEventListener("click", showMoreResults)
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeResults)
-  }
-
-  // Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       e.preventDefault()
@@ -60,31 +63,27 @@ function setupEventListeners() {
     })
   })
 
-  // Close mobile menu when clicking outside
   document.addEventListener("click", (event) => {
     if (isMenuOpen && !mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
       toggleMobileMenu()
     }
   })
 
-  // Handle window resize
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768 && isMenuOpen) {
       toggleMobileMenu()
     }
+    updateCarouselResponsiveness()
   })
 }
 
-// ===== MOBILE MENU =====
 function toggleMobileMenu() {
   isMenuOpen = !isMenuOpen
   mobileMenu.classList.toggle("active")
   mobileMenuBtn.classList.toggle("active")
-
   document.body.style.overflow = isMenuOpen ? "hidden" : ""
 }
 
-// ===== NAVBAR SCROLL EFFECT =====
 function setupNavbarScroll() {
   let lastScrollTop = 0
 
@@ -111,59 +110,256 @@ function setupNavbarScroll() {
   })
 }
 
-// ===== RESULTS SECTION LOGIC (HTML-based) =====
-function updateResultsVisibility() {
-  allResultCards.forEach((card, index) => {
-    if (index < currentVisibleResults) {
-      card.classList.remove("hidden-result-card")
-      card.style.animationDelay = `${index * 0.05}s` // Animatsiya kechikishini qo'shish
-    } else {
-      card.classList.add("hidden-result-card")
-    }
+function initializeCarousels() {
+  Object.keys(carouselConfigs).forEach((carouselName) => {
+    initializeCarousel(carouselName)
+  })
+}
+
+function initializeCarousel(carouselName) {
+  const config = carouselConfigs[carouselName]
+  const track = document.getElementById(`${carouselName}Track`)
+  const prevBtn = document.getElementById(`${carouselName}Prev`)
+  const nextBtn = document.getElementById(`${carouselName}Next`)
+  const indicatorsContainer = document.getElementById(`${carouselName}Indicators`)
+
+  if (!track) return
+
+  const items = track.querySelectorAll(".carousel-item")
+  config.totalItems = items.length
+
+  createIndicators(carouselName, indicatorsContainer)
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      moveCarousel(carouselName, "prev")
+    })
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      moveCarousel(carouselName, "next")
+    })
+  }
+
+  const indicators = indicatorsContainer?.querySelectorAll(".indicator")
+  indicators?.forEach((indicator, index) => {
+    indicator.addEventListener("click", () => {
+      goToSlide(carouselName, index)
+    })
   })
 
-  // Tugmalar holatini yangilash
-  if (currentVisibleResults >= totalResults) {
-    showMoreBtn.classList.add("hidden")
-  } else {
-    showMoreBtn.classList.remove("hidden")
+  initializeDragFunctionality(carouselName, track)
+
+  updateCarouselPosition(carouselName)
+
+  if (config.autoPlay) {
+    startAutoPlay(carouselName)
   }
 
-  if (currentVisibleResults > resultsPerBatch) {
-    // Dastlabki 8 tadan ko'p bo'lsa "Yopish" tugmasi ko'rinadi
-    closeBtn.classList.remove("hidden")
-  } else {
-    closeBtn.classList.add("hidden")
+  const carousel = document.getElementById(`${carouselName}Carousel`)
+  if (carousel && config.autoPlay) {
+    carousel.addEventListener("mouseenter", () => stopAutoPlay(carouselName))
+    carousel.addEventListener("mouseleave", () => startAutoPlay(carouselName))
   }
 }
 
-function showMoreResults() {
-  showMoreBtn.innerHTML = "Yuklanmoqda..."
-  showMoreBtn.disabled = true
+function initializeDragFunctionality(carouselName, track) {
+  let isDragging = false
+  let startPos = 0
+  let currentTranslate = 0
+  let prevTranslate = 0
+  let animationId = 0
 
-  setTimeout(() => {
-    currentVisibleResults = Math.min(currentVisibleResults + resultsPerBatch, totalResults)
-    updateResultsVisibility()
+  track.addEventListener("mousedown", dragStart)
+  track.addEventListener("mouseup", dragEnd)
+  track.addEventListener("mouseleave", dragEnd)
+  track.addEventListener("mousemove", dragMove)
 
-    showMoreBtn.innerHTML = "Ko'proq Ko'rish"
-    showMoreBtn.disabled = false
-  }, 500) // Yuklanish animatsiyasi uchun biroz kechikish
+  track.addEventListener("touchstart", dragStart)
+  track.addEventListener("touchend", dragEnd)
+  track.addEventListener("touchmove", dragMove)
+
+  function dragStart(event) {
+    if (event.type === "touchstart") {
+      startPos = event.touches[0].clientX
+    } else {
+      startPos = event.clientX
+      event.preventDefault()
+    }
+
+    isDragging = true
+    animationId = requestAnimationFrame(animation)
+    track.classList.add("dragging")
+
+    stopAutoPlay(carouselName)
+  }
+
+  function dragMove(event) {
+    if (!isDragging) return
+
+    let currentPosition = 0
+    if (event.type === "touchmove") {
+      currentPosition = event.touches[0].clientX
+    } else {
+      currentPosition = event.clientX
+    }
+
+    currentTranslate = prevTranslate + currentPosition - startPos
+  }
+
+  function dragEnd() {
+    if (!isDragging) return
+
+    isDragging = false
+    cancelAnimationFrame(animationId)
+    track.classList.remove("dragging")
+
+    const movedBy = currentTranslate - prevTranslate
+
+    if (movedBy < -100) {
+      moveCarousel(carouselName, "next")
+    }
+
+    if (movedBy > 100) {
+      moveCarousel(carouselName, "prev")
+    }
+
+    currentTranslate = 0
+    prevTranslate = 0
+
+    if (carouselConfigs[carouselName].autoPlay) {
+      setTimeout(() => {
+        startAutoPlay(carouselName)
+      }, 1000)
+    }
+  }
+
+  function animation() {
+    if (isDragging) {
+      const config = carouselConfigs[carouselName]
+      const items = track.children
+      if (items.length === 0) return
+
+      const itemWidth = items[0].offsetWidth
+      const gap = 48
+      const moveDistance = (itemWidth + gap) * config.itemsPerView
+      const baseTranslate = -config.currentIndex * moveDistance
+
+      track.style.transform = `translateX(${baseTranslate + currentTranslate}px)`
+      requestAnimationFrame(animation)
+    }
+  }
 }
 
-function closeResults() {
-  closeBtn.innerHTML = "Yopilmoqda..."
-  closeBtn.disabled = true
+function createIndicators(carouselName, container) {
+  if (!container) return
 
-  setTimeout(() => {
-    currentVisibleResults = resultsPerBatch // Dastlabki 8 ta cardga qaytarish
-    updateResultsVisibility()
+  const config = carouselConfigs[carouselName]
+  const totalSlides = Math.ceil(config.totalItems / config.itemsPerView)
 
-    closeBtn.innerHTML = "Yopish"
-    closeBtn.disabled = false
-  }, 500) // Yuklanish animatsiyasi uchun biroz kechikish
+  container.innerHTML = ""
+  for (let i = 0; i < totalSlides; i++) {
+    const indicator = document.createElement("div")
+    indicator.className = `indicator ${i === 0 ? "active" : ""}`
+    container.appendChild(indicator)
+  }
 }
 
-// ===== SCROLL ANIMATIONS =====
+function moveCarousel(carouselName, direction) {
+  const config = carouselConfigs[carouselName]
+  const totalSlides = Math.ceil(config.totalItems / config.itemsPerView)
+
+  if (direction === "next") {
+    config.currentIndex = (config.currentIndex + 1) % totalSlides
+  } else {
+    config.currentIndex = (config.currentIndex - 1 + totalSlides) % totalSlides
+  }
+
+  updateCarouselPosition(carouselName)
+  updateIndicators(carouselName)
+}
+
+function goToSlide(carouselName, index) {
+  const config = carouselConfigs[carouselName]
+  const totalSlides = Math.ceil(config.totalItems / config.itemsPerView)
+  config.currentIndex = Math.min(Math.max(index, 0), totalSlides - 1)
+  updateCarouselPosition(carouselName)
+  updateIndicators(carouselName)
+}
+
+function updateCarouselPosition(carouselName) {
+  const config = carouselConfigs[carouselName]
+  const track = document.getElementById(`${carouselName}Track`)
+
+  if (!track) return
+
+  const items = track.children
+  if (items.length === 0) return
+
+  const itemWidth = items[0].offsetWidth
+  const gap = 48
+  const moveDistance = (itemWidth + gap) * config.itemsPerView
+  const translateX = -config.currentIndex * moveDistance
+
+  track.style.transition = 'transform 0.5s ease-in-out'
+  track.style.transform = `translateX(${translateX}px)`
+}
+
+function updateIndicators(carouselName) {
+  const config = carouselConfigs[carouselName]
+  const indicatorsContainer = document.getElementById(`${carouselName}Indicators`)
+
+  if (!indicatorsContainer) return
+
+  const indicators = indicatorsContainer.querySelectorAll(".indicator")
+  indicators.forEach((indicator, index) => {
+    indicator.classList.toggle("active", index === config.currentIndex)
+  })
+}
+
+function startAutoPlay(carouselName) {
+  const config = carouselConfigs[carouselName]
+
+  if (config.autoPlayTimer) {
+    clearInterval(config.autoPlayTimer)
+  }
+
+  config.autoPlayTimer = setInterval(() => {
+    moveCarousel(carouselName, "next")
+  }, config.autoPlayInterval)
+}
+
+function stopAutoPlay(carouselName) {
+  const config = carouselConfigs[carouselName]
+
+  if (config.autoPlayTimer) {
+    clearInterval(config.autoPlayTimer)
+    config.autoPlayTimer = null
+  }
+}
+
+function updateCarouselResponsiveness() {
+  const screenWidth = window.innerWidth
+
+  Object.keys(carouselConfigs).forEach((carouselName) => {
+    const config = carouselConfigs[carouselName]
+
+    if (screenWidth <= 480) {
+      config.itemsPerView = 1
+    } else if (screenWidth <= 768) {
+      config.itemsPerView = 2
+    } else {
+      config.itemsPerView = 3
+    }
+
+    config.currentIndex = 0
+    createIndicators(carouselName, document.getElementById(`${carouselName}Indicators`))
+    updateCarouselPosition(carouselName)
+    updateIndicators(carouselName)
+  })
+}
+
 function setupScrollAnimations() {
   const observerOptions = {
     threshold: 0.1,
@@ -182,14 +378,8 @@ function setupScrollAnimations() {
   document.querySelectorAll(".fade-in, .slide-in-left, .slide-in-right").forEach((el) => {
     observer.observe(el)
   })
-
-  // Natija kartochkalari uchun alohida animatsiya, chunki ular dinamik ko'rinadi/yashirinadi
-  allResultCards.forEach((el) => {
-    observer.observe(el)
-  })
 }
 
-// ===== UTILITY FUNCTIONS (o'zgarishsiz qoldi) =====
 function debounce(func, wait) {
   let timeout
   return function executedFunction(...args) {
@@ -215,7 +405,6 @@ function throttle(func, limit) {
   }
 }
 
-// ===== PERFORMANCE OPTIMIZATIONS (o'zgarishsiz qoldi) =====
 function setupLazyLoading() {
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -233,74 +422,39 @@ function setupLazyLoading() {
   })
 }
 
-// ===== ACCESSIBILITY IMPROVEMENTS (o'zgarishsiz qoldi) =====
 function setupAccessibility() {
-  mobileMenuBtn.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault()
-      toggleMobileMenu()
-    }
-  })
-
-  if (isMenuOpen) {
-    const firstLink = mobileMenu.querySelector("a")
-    if (firstLink) firstLink.focus()
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault()
+        toggleMobileMenu()
+      }
+    })
   }
 
-//   const skipLink = document.createElement("a")
-//   skipLink.href = "#main-content"
-//   skipLink.textContent = "Skip to main content"
-//   skipLink.className = "skip-link"
-//   skipLink.style.cssText = `
-//         position: absolute;
-//         top: -40px;
-//         left: 6px;
-//         background: #16a34a;
-//         color: white;
-//         padding: 8px;
-//         text-decoration: none;
-//         border-radius: 4px;
-//         z-index: 1001;
-//         transition: top 0.3s;
-//     `
-
-//   skipLink.addEventListener("focus", () => {
-//     skipLink.style.top = "6px"
-//   })
-
-//   skipLink.addEventListener("blur", () => {
-//     skipLink.style.top = "-40px"
-//   })
-
-//   document.body.insertBefore(skipLink, document.body.firstChild)
+  if (isMenuOpen) {
+    const firstLink = mobileMenu?.querySelector("a")
+    if (firstLink) firstLink.focus()
+  }
 }
 
-// ===== ERROR HANDLING (o'zgarishsiz qoldi) =====
 window.addEventListener("error", (e) => {
   console.error("JavaScript error:", e.error)
 })
 
-// ===== ANALYTICS & TRACKING (o'zgarishsiz qoldi) =====
 function trackEvent(eventName, eventData = {}) {
   console.log("Event tracked:", eventName, eventData)
 }
 
-document.addEventListener("click", (e) => {
-  if (e.target.matches(".btn")) {
-    trackEvent("button_click", {
-      button_text: e.target.textContent.trim(),
-      button_href: e.target.href || null,
-    })
-  }
-})
-
-// ===== FINAL INITIALIZATION (o'zgarishsiz qoldi) =====
 document.addEventListener("DOMContentLoaded", () => {
   setupLazyLoading()
   setupAccessibility()
 
   setTimeout(() => {
-    document.querySelector(".hero-content").classList.add("fade-in", "visible")
+    const heroContent = document.querySelector(".hero-content")
+    if (heroContent) {
+      heroContent.classList.add("fade-in", "visible")
+    }
   }, 300)
 
   console.log("🎓 Veridex Academy website initialized successfully!")
@@ -318,6 +472,3 @@ if ("serviceWorker" in navigator) {
       })
   })
 }
-
-
-

@@ -1,851 +1,724 @@
 <!DOCTYPE html>
 <html lang="uz">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Veridex Academy - Sifatli Ta'lim Markazi</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veridex Academy - Sifatli Ta'lim Markazi</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">
+        </div>
+        <div class="logo-text">
+          <span class="logo-main">Lider Veridex</span>
+          <span class="logo-sub">Academy</span>
+        </div>
+      </div>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link home-btn">Bosh sahifa</a></li>
+        <li><a href="#about" class="nav-link">Biz haqimizda</a></li>
+        <li><a href="#classrooms" class="nav-link">Dars xonalari</a></li>
+        <li><a href="#teachers" class="nav-link">O'qituvchilar</a></li>
+        <li><a href="#results" class="nav-link">Natijalar</a></li>
+        <li><a href="#contact" class="nav-link">Bog'lanish</a></li>
+      </ul>
 
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <div class="logo">
-          <div class="logo-icon">
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-              <rect width="45" height="45" rx="12" fill="#16a34a" />
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#home" class="mobile-link">Bosh sahifa</a>
+        <a href="#about" class="mobile-link">Biz haqimizda</a>
+        <a href="#classrooms" class="mobile-link">Dars xonalari</a>
+        <a href="#teachers" class="mobile-link">O'qituvchilar</a>
+        <a href="#results" class="mobile-link">Natijalar</a>
+        <a href="#contact" class="mobile-link">Bog'lanish</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-background">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-icon">🎓</span>
+          <span>Sifatli ta'lim markazi</span>
+        </div>
+        <h1 class="hero-title">
+          Veridex Academy ga
+          <span class="highlight">Xush kelibsiz!</span>
+        </h1>
+        <p class="hero-description">
+          Tajribali o'qituvchilar bilan sifatli ta'lim oling va o'z
+          kelajagingizni quring. Bizning zamonaviy dars xonalarimizda eng
+          yaxshi natijalarni qo'lga kiriting.
+        </p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Biz bilan bog'laning</a>
+          <a href="#about" class="btn btn-outline">Biz haqimizda</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">1000+</span>
+            <span class="stat-label">Bitiruvchilar</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">O'qituvchilar</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">94%</span>
+            <span class="stat-label">Muvaffaqiyat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Nima uchun aynan <span class="highlight">Veridex Academy?</span>
+        </h2>
+        <p class="section-subtitle">Bizning afzalliklarimiz va o'ziga xos xususiyatlarimiz</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card green">
+          <div class="feature-icon green">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
               <path
-                d="M12 32V13h6l4 12 4-12h6v19h-4V19l-3 9h-2l-3-9v13h-4z"
+                d="M16 4C12.6863 4 10 6.68629 10 10C10 13.3137 12.6863 16 16 16C19.3137 16 22 13.3137 22 10C22 6.68629 19.3137 4 16 4Z"
                 fill="white"
               />
-              <circle cx="35" cy="15" r="3" fill="#fbbf24" />
+              <path
+                d="M8 28V24C8 20.6863 10.6863 18 14 18H18C21.3137 18 24 20.6863 24 24V28H8Z"
+                fill="white"
+              />
             </svg>
           </div>
-          <div class="logo-text">
-            <span class="logo-main">Lider Veridex</span>
-            <span class="logo-sub">Academy</span>
-          </div>
+          <h3>Tajribali O'qituvchilar</h3>
+          <p>Ko'p yillik tajribaga ega professional o'qituvchilar bilan sifatli ta'lim</p>
+          <div class="feature-badge">Sertifikatlangan</div>
         </div>
 
-        <ul class="nav-menu">
-          <li><a href="#home" class="nav-link home-btn">Bosh sahifa</a></li>
-          <li><a href="#about" class="nav-link">Biz haqimizda</a></li>
-          <li><a href="#classrooms" class="nav-link">Dars xonalari</a></li>
-          <li><a href="#teachers" class="nav-link">O'qituvchilar</a></li>
-          <li><a href="#results" class="nav-link">Natijalar</a></li>
-          <li><a href="#contact" class="nav-link">Bog'lanish</a></li>
-        </ul>
-
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <div class="mobile-menu" id="mobileMenu">
-          <a href="#home" class="mobile-link">Bosh sahifa</a>
-          <a href="#about" class="mobile-link">Biz haqimizda</a>
-          <a href="#classrooms" class="mobile-link">Dars xonalari</a>
-          <a href="#teachers" class="mobile-link">O'qituvchilar</a>
-          <a href="#results" class="mobile-link">Natijalar</a>
-          <a href="#contact" class="mobile-link">Bog'lanish</a>
+        <div class="feature-card orange">
+          <div class="feature-icon orange">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="4" y="8" width="24" height="16" rx="2" fill="white" />
+              <rect x="6" y="10" width="20" height="2" fill="#ea580c" />
+              <rect x="6" y="14" width="12" height="2" fill="#ea580c" />
+              <rect x="6" y="18" width="16" height="2" fill="#ea580c" />
+            </svg>
+          </div>
+          <h3>Zamonaviy Dars Xonalari</h3>
+          <p>Eng so'nggi texnologiyalar bilan jihozlangan qulay va zamonaviy xonalar</p>
+          <div class="feature-badge">Smart Board</div>
         </div>
-      </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-background">
-        <div class="hero-shape hero-shape-1"></div>
-        <div class="hero-shape hero-shape-2"></div>
-        <div class="hero-shape hero-shape-3"></div>
-      </div>
-      <div class="container">
-        <div class="hero-content">
-          <div class="hero-badge">
-            <span class="badge-icon">🎓</span>
-            <span>Sifatli ta'lim markazi</span>
+        <div class="feature-card blue">
+          <div class="feature-icon blue">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path
+                d="M16 2L20.09 10.26L29 11.27L22.5 17.14L24.18 26.02L16 21.77L7.82 26.02L9.5 17.14L3 11.27L11.91 10.26L16 2Z"
+                fill="white"
+              />
+            </svg>
           </div>
-          <h1 class="hero-title">
-            Veridex Academy ga
-            <span class="highlight">Xush kelibsiz!</span>
-          </h1>
-          <p class="hero-description">
-            Tajribali o'qituvchilar bilan sifatli ta'lim oling va o'z
-            kelajagingizni quring. Bizning zamonaviy dars xonalarimizda eng
-            yaxshi natijalarni qo'lga kiriting.
-          </p>
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary"> Biz bilan bog'laning </a>
-            <a href="#about" class="btn btn-outline"> Biz haqimizda </a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <span class="stat-number">1000+</span>
-              <span class="stat-label">Bitiruvchilar</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">15+</span>
-              <span class="stat-label">O'qituvchilar</span>
-            </div>
-            <div class="stat-item">
-              <span class="stat-number">94%</span>
-              <span class="stat-label">Muvaffaqiyat</span>
-            </div>
-          </div>
+          <h3>Yuqori Natijalar</h3>
+          <p>O'quvchilarimizning ajoyib natijalari va olimpiada g'oliblari</p>
+          <div class="feature-badge">94% Success</div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features Section -->
-    <section class="features">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">
-            Nima uchun aynan <span class="highlight">Veridex Academy?</span>
-          </h2>
-          <p class="section-subtitle">Bizning afzalliklarimiz va o'ziga xos xususiyatlarimiz</p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-card green">
-            <div class="feature-icon green">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path
-                  d="M16 4C12.6863 4 10 6.68629 10 10C10 13.3137 12.6863 16 16 16C19.3137 16 22 13.3137 22 10C22 6.68629 19.3137 4 16 4Z"
-                  fill="white"
-                />
-                <path
-                  d="M8 28V24C8 20.6863 10.6863 18 14 18H18C21.3137 18 24 20.6863 24 24V28H8Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            <h3>Tajribali O'qituvchilar</h3>
-            <p>Ko'p yillik tajribaga ega professional o'qituvchilar bilan sifatli ta'lim</p>
-            <div class="feature-badge">Sertifikatlangan</div>
-          </div>
-
-          <div class="feature-card orange">
-            <div class="feature-icon orange">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <rect x="4" y="8" width="24" height="16" rx="2" fill="white" />
-                <rect x="6" y="10" width="20" height="2" fill="#ea580c" />
-                <rect x="6" y="14" width="12" height="2" fill="#ea580c" />
-                <rect x="6" y="18" width="16" height="2" fill="#ea580c" />
-              </svg>
-            </div>
-            <h3>Zamonaviy Dars Xonalari</h3>
-            <p>Eng so'nggi texnologiyalar bilan jihozlangan qulay va zamonaviy xonalar</p>
-            <div class="feature-badge">Smart Board</div>
-          </div>
-
-          <div class="feature-card blue">
-            <div class="feature-icon blue">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path
-                  d="M16 2L20.09 10.26L29 11.27L22.5 17.14L24.18 26.02L16 21.77L7.82 26.02L9.5 17.14L3 11.27L11.91 10.26L16 2Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-            <h3>Yuqori Natijalar</h3>
-            <p>O'quvchilarimizning ajoyib natijalari va olimpiada g'oliblari</p>
-            <div class="feature-badge">94% Success</div>
-          </div>
-        </div>
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Biz <span class="highlight">haqimizda</span>
+        </h2>
+        <p class="section-subtitle">Lider Veridex Academy - sizning muvaffaqiyatingiz yo'lida ishonchli hamkor</p>
       </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">
-            Biz <span class="highlight">haqimizda</span>
-          </h2>
-          <p class="section-subtitle">Lider Veridex Academy - sizning muvaffaqiyatingiz yo'lida ishonchli hamkor</p>
+      <div class="about-content">
+        <div class="about-image">
+          <img src="./images/IMAGE 2025-07-15 23:54:28.jpg" alt="Academy building">
         </div>
 
-        <div class="about-content">
-          <div class="about-image">
-            <img src="./images/IMAGE 2025-07-15 23:54:28.jpg" alt="">
+        <div class="about-text">
+          <div class="about-description">
+            <p>
+              Lider Veridex Academy — bu Buxoro shahrida joylashgan zamonaviy va ishonchli o'quv markazidir. Bizning asosiy maqsadimiz – har bir o'quvchiga yuqori sifatli ta'lim berish va ularni bilimli, malakali va muvaffaqiyatli inson sifatida shakllantirishdir.
+
+              Markazimizda darslar o'z sohasida 5 yildan ortiq tajribaga ega bo'lgan professional ustozlar tomonidan olib boriladi.
+
+              Bugungi kunga kelib, 94% dan ortiq o'quvchilarimiz yuqori natijalarga erishgan va o'z maqsadlariga muvaffaqiyatli yetishmoqda.
+            </p>
           </div>
 
-          <div class="about-text">
-            <div class="about-description">
-              <p>
-               Lider Veridex Academy — bu Buxoro shahrida joylashgan zamonaviy va ishonchli o‘quv markazidir. Bizning asosiy maqsadimiz – har bir o‘quvchiga yuqori sifatli ta’lim berish va ularni bilimli, malakali va muvaffaqiyatli inson sifatida shakllantirishdir.
-
-                Markazimizda darslar o‘z sohasida 5 yildan ortiq tajribaga ega bo‘lgan professional ustozlar tomonidan olib boriladi.
-
-               Bugungi kunga kelib, 94% dan ortiq o‘quvchilarimiz yuqori natijalarga erishgan va o‘z maqsadlariga muvaffaqiyatli yetishmoqda.
-              </p>
+          <div class="about-stats">
+            <div class="stat-card green">
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Bitiruvchilar</div>
             </div>
-
-            <div class="about-stats">
-              <div class="stat-card green">
-                <div class="stat-number">1000+</div>
-                <div class="stat-label">Bitiruvchilar</div>
-              </div>
-              <div class="stat-card orange">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">O'qituvchilar</div>
-              </div>
-              <div class="stat-card blue">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Fanlar</div>
-              </div>
-              <div class="stat-card purple">
-                <div class="stat-number">5+</div>
-                <div class="stat-label">Yillik tajriba</div>
-              </div>
+            <div class="stat-card orange">
+              <div class="stat-number">15+</div>
+              <div class="stat-label">O'qituvchilar</div>
+            </div>
+            <div class="stat-card blue">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Fanlar</div>
+            </div>
+            <div class="stat-card purple">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Yillik tajriba</div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Classrooms Section -->
-    <section id="classrooms" class="classrooms">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">
-            Dars <span class="highlight">xonalarimiz</span>
-          </h2>
-          <p class="section-subtitle">Zamonaviy jihozlar bilan ta'minlangan qulay dars xonalari</p>
-        </div>
-
-        <div class="classrooms-grid" id="classroomsGrid">
-          <!-- Dars xonalari kartochkalari -->
-          <div class="classroom-card fade-in">
-            <div class="classroom-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/IMAGE 2025-07-16 01:42:13.jpg" alt="">
-              </div>
-            </div>
-            <div class="classroom-info">
-              <h3>Kirish xonasi</h3>
-              <p>Keng va shinam</p>
-              <div class="classroom-meta">
-                <span class="status">Mavjud</span>
-              </div>
-            </div>
-          </div>
-          <div class="classroom-card fade-in">
-            <div class="classroom-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/IMAGE 2025-07-16 01:44:55.jpg" alt="">
-              </div>
-            </div>
-            <div class="classroom-info">
-              <h3>Kutish zali</h3>
-              <p>Qulay</p>
-              <div class="classroom-meta">
-                <span class="status">Mavjud</span>
-              </div>
-            </div>
-          </div>
-          <div class="classroom-card fade-in">
-            <div class="classroom-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/IMAGE 2025-07-16 01:46:03.jpg" alt="">
-              </div>
-            </div>
-            <div class="classroom-info">
-              <h3>Dars xonasi</h3>
-              <p>Zamonaviy stol - stullar</p>
-              <div class="classroom-meta">
-                <span class="status">Mavjud</span>
-                <span class="capacity">Sig'imi: 25 kishi</span>
-              </div>
-            </div>
-          </div>
-          <div class="classroom-card fade-in">
-            <div class="classroom-image">
-             <div style=" width: 100%; height: 100%;">
-                <img src="./images/IMAGE 2025-07-16 01:46:30.jpg" alt="">
-              </div>
-            </div>
-            <div class="classroom-info">
-              <h3>Matematika Dars xonasi</h3>
-              <p>Zamonaviy stol - stullar</p>
-              <div class="classroom-meta">
-                <span class="status">Mavjud</span>
-                <span class="capacity">Sig'imi: 25 kishi</span>
-              </div>
-            </div>
-          </div>
-          <div class="classroom-card fade-in">
-            <div class="classroom-image">
-             <div style=" width: 100%; height: 100%;">
-                <img src="./images/IMAGE 2025-07-16 01:46:53.jpg" alt="">
-              </div>
-            </div>
-            <div class="classroom-info">
-              <h3>Tashqi yo'lak</h3>
-              <p>Keng</p>
-              <div class="classroom-meta">
-              </div>
-            </div>
-          </div>
-          <div class="classroom-card fade-in">
-            <div class="classroom-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/IMAGE 2025-07-16 01:47:18.jpg" alt="">
-              </div>
-            </div>
-            <div class="classroom-info">
-              <h3>Dars xonasi</h3>
-              <p>Dars qilish uchun keng va yorug'</p>
-              <div class="classroom-meta">
-                <span class="status">Mavjud</span>
-                <span class="capacity">Sig'imi: 50+ kishi</span>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
+  <!-- Classrooms Section -->
+  <section id="classrooms" class="classrooms">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Dars <span class="highlight">xonalarimiz</span>
+        </h2>
+        <p class="section-subtitle">Zamonaviy jihozlar bilan ta'minlangan qulay dars xonalari</p>
       </div>
-    </section>
 
-    <!-- Teachers Section -->
-    <section id="teachers" class="teachers">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">
-            Bizning <span class="highlight">o'qituvchilarimiz</span>
-          </h2>
-          <p class="section-subtitle">Tajribali va malakali o'qituvchilar jamoasi</p>
-        </div>
-
-      <div class="teachers-grid" id="teachersGrid">
-          <!-- O'qituvchilar kartochkalari -->
-          <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4378.JPG" alt="">
+      <div class="carousel-container">
+        <div class="carousel-wrapper" id="classroomsCarousel">
+          <div class="carousel-track" id="classroomsTrack">
+            <!-- Classroom cards - 3 tadan ko'rinadi -->
+            <div class="classroom-card carousel-item">
+              <div class="classroom-image">
+                <img src="./image/IMAGE 2025-07-17 13:40:15.jpg" alt="Kirish xonasi">
               </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">G'olib Karimov</div>
-              <div class="teacher-subject">Matematika</div>
-              <div class="teacher-experience">Tajriba: 15 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">1000+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
+              <div class="classroom-info">
+                <h3>IT Room</h3>
+                <p>Keng va Zamonaviy</p>
+                <div class="classroom-meta">
+                  <span class="status">Mavjud</span>
+                  <span class="capacity">Sig'imi: 15+ kishi</span>
                 </div>
               </div>
-            </div>
-          </div>
-         <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4370.JPG" alt="">
-              </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Begzod Rajabov</div>
-              <div class="teacher-subject">Matematika</div>
-              <div class="teacher-experience">Tajriba: 5 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">150+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
-                </div>
-              </div>
-            </div>
-          </div>
-         <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img  src="./images/0I7A4347.JPG" alt="">
-              </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Madina Ikromova</div>
-              <div class="teacher-subject">Rus tili</div>
-              <div class="teacher-experience">Tajriba: 16 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">1000+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4364.JPG" alt="">
-              </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Shoxrux Imomov</div>
-              <div class="teacher-subject">Ingliz tili</div>
-              <div class="teacher-experience">Tajriba: 8 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">200+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4367.JPG" alt="">
-              </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Sanjar Maxmudov</div>
-              <div class="teacher-subject">Fizika</div>
-              <div class="teacher-experience">Tajriba: 10 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">200+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4359.JPG" alt="">
-              </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Akmal Asurov</div>
-              <div class="teacher-subject">Ona tili</div>
-              <div class="teacher-experience">Tajriba: 8 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">300+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
-                </div>
-              </div>
-            </div>
             </div>
 
-          <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4357.JPG" alt="">
+            <div class="classroom-card carousel-item">
+              <div class="classroom-image">
+                <img src="./image/IMAGE 2025-07-17 13:40:55.jpg" alt="Kutish zali">
               </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Ubaydullayev Shohruh</div>
-              <div class="teacher-subject">Biologiya</div>
-              <div class="teacher-experience">Tajriba: 13 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">300+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
+              <div class="classroom-info">
+                <h3>Kutubxona</h3>
+                <p>Kerakli kitoblar</p>
+                <div class="classroom-meta">
+                  <span class="status">Mavjud</span>
                 </div>
               </div>
             </div>
-            </div>
 
-          <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4361.JPG" alt="">
+            <div class="classroom-card carousel-item">
+              <div class="classroom-image">
+                <img src="./image/IMAGE 2025-07-17 13:40:22.jpg" alt="Dars xonasi">
               </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Kutratov Otabek</div>
-              <div class="teacher-subject">Tarix</div>
-              <div class="teacher-experience">Tajriba: 13 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">300+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
+              <div class="classroom-info">
+                <h3>Dars xonasi</h3>
+                <p>Zamonaviy stol - stullar</p>
+                <div class="classroom-meta">
+                  <span class="status">Mavjud</span>
+                  <span class="capacity">Sig'imi: 25 kishi</span>
                 </div>
               </div>
             </div>
-            </div>
 
-          <div class="teacher-card fade-in">
-            <div class="teacher-image">
-              <div style=" width: 100%; height: 100%;">
-                <img src="./images/0I7A4355.JPG" alt="">
+            <div class="classroom-card carousel-item">
+              <div class="classroom-image">
+                <img src="./image/IMAGE 2025-07-17 13:40:40.jpg" alt="Matematika Dars xonasi">
               </div>
-            </div>
-            <div class="teacher-info">
-              <div class="teacher-name">Hakimov Axtam</div>
-              <div class="teacher-subject">Kimyo</div>
-              <div class="teacher-experience">Tajriba: 6 yil</div>
-              <div class="teacher-stats">
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number orange">300+</div>
-                  <div class="teacher-stat-label">O'quvchilar</div>
-                </div>
-                <div class="teacher-stat">
-                  <div class="teacher-stat-number green">95%</div>
-                  <div class="teacher-stat-label">Muvaffaqiyat</div>
+              <div class="classroom-info">
+                <h3>Matematika Dars xonasi</h3>
+                <p>Zamonaviy stol - stullar</p>
+                <div class="classroom-meta">
+                  <span class="status">Mavjud</span>
+                  <span class="capacity">Sig'imi: 25 kishi</span>
                 </div>
               </div>
             </div>
+
+            <div class="classroom-card carousel-item">
+              <div class="classroom-image">
+                <img src="./image/IMAGE 2025-07-17 13:40:50.jpg" alt="Tashqi yo'lak">
+              </div>
+              <div class="classroom-info">
+                <h3>Muhokama xonasi</h3>
+                <p>Keng va qulay</p>
+                <div class="classroom-meta">
+                   <span class="status">Mavjud</span>
+                   <span class="capacity">Sig'imi: 20+ kishi</span>
+                </div>
+              </div>
             </div>
 
-        </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Results Section -->
-    <section id="results" class="results">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">
-            Bizning <span class="highlight">natijalarimiz</span>
-          </h2>
-          <p class="section-subtitle">O'quvchilarimizning ajoyib yutuqlari va muvaffaqiyatlari</p>
-        </div>
-
-        <div class="results-grid" id="resultsGrid">
-          <!-- Natijalar kartochkalari (dastlabki 8 ta ko'rinadi) -->
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-                <img src="./images/IMAGE 2025-07-16 02:43:12.jpg" alt="">
+            <div class="classroom-card carousel-item">
+              <div class="classroom-image">
+                <img src="./image/IMAGE 2025-07-17 13:49:13.jpg" alt="Dars xonasi">
               </div>
-            </div>
-            <div class="result-info">
-              <h4>Diplom</h4>
-              <p>Yilning eng yaxshi o'qituvchisi</p>
-            </div>
-          </div>
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:42:38.jpg" alt="">
+              <div class="classroom-info">
+                <h3>Dars xonasi</h3>
+                <p>Dars qilish uchun keng va yorug'</p>
+                <div class="classroom-meta">
+                  <span class="status">Mavjud</span>
+                  <span class="capacity">Sig'imi: 50+ kishi</span>
+                </div>
               </div>
-            </div>
-            <div class="result-info">
-              <h4>Sertifikat</h4>
-              <p>Rus tilidan sertifikat</p>
-            </div>
-          </div>
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:43:30.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Diplom</h4>
-              <p>Eng yaxshi metodik tavsiyasi</p>
-            </div>
-          </div>
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:43:55.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Diplom</h4>
-              <p>Yilning eng yaxshi fan o'qituvchisi</p>
-            </div>
-          </div>
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:44:21.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-              <img src="./images/IMAGE 2025-07-16 02:48:16.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-            <h4>Matematika</h4>
-              <p>B+</p>
-            </div>
-          </div>
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-                <img src="./images/IMAGE 2025-07-16 02:48:34.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>A</p>
-            </div>
-          </div>
-          <div class="result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:48:43.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-
-          <!-- Keyingi natijalar (dastlab yashirin) -->
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-              <img src="./images/IMAGE 2025-07-16 02:49:00.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>B</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:49:14.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:49:31.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-               <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-                <img src="./images/IMAGE 2025-07-16 02:49:58.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-              <img src="./images/IMAGE 2025-07-16 02:50:09.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-            <img src="./images/IMAGE 2025-07-16 02:50:28.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>B</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:50:45.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-             <img src="./images/IMAGE 2025-07-16 02:51:01.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-                <img src="./images/IMAGE 2025-07-16 02:51:14.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-            <img src="./images/IMAGE 2025-07-16 02:51:28.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-              <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-             <img src="./images/IMAGE 2025-07-16 02:51:54.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-            <h4>Matematika</h4>
-              <p>B</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:52:03.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-             <h4>Matematika</h4>
-              <p>B</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:52:20.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-             <h4>Matematika</h4>
-              <p>B</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-              <img src="./images/IMAGE 2025-07-16 02:52:27.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-           <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-            <img src="./images/IMAGE 2025-07-16 02:52:46.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-            <h4>Matematika</h4>
-              <p>C+</p>
-            </div>
-          </div>
-          <div class="result-card hidden-result-card">
-            <div class="result-image">
-              <div>
-               <img src="./images/IMAGE 2025-07-16 02:53:06.jpg" alt="">
-              </div>
-            </div>
-            <div class="result-info">
-            <h4>Matematika</h4>
-              <p>C+</p>
             </div>
           </div>
         </div>
 
-        <div class="results-buttons" id="resultsButtons">
-          <button class="results-btn" id="showMoreBtn">Ko'proq Ko'rish</button>
-          <button class="results-btn close-btn hidden" id="closeBtn">
-            Yopish
+        <div class="carousel-controls">
+          <button class="carousel-btn prev-btn" id="classroomsPrev">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next-btn" id="classroomsNext">
+            <i class="bi bi-chevron-right"></i>
           </button>
         </div>
 
-        <div class="results-stats">
-          <div class="results-stats-grid">
-            <div class="stat-card green">
-              <div class="stat-number">94%</div>
-              <div class="stat-label">Muvaffaqiyat darajasi</div>
+        <div class="carousel-indicators" id="classroomsIndicators"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teachers Section - Classrooms kabi 3 tadan ko'rinadi -->
+  <section id="teachers" class="teachers">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Bizning <span class="highlight">o'qituvchilarimiz</span>
+        </h2>
+        <p class="section-subtitle">Tajribali va malakali o'qituvchilar jamoasi</p>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-wrapper" id="teachersCarousel">
+          <div class="carousel-track" id="teachersTrack">
+            <!-- Teacher cards - 3 tadan ko'rinadi -->
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4378.JPG" alt="G'olib Karimov">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">G'olib Karimov</div>
+                <div class="teacher-subject">Matematika</div>
+                <div class="teacher-experience">Tajriba: 15 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">1000+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="stat-card orange">
-              <div class="stat-number">3000+</div>
-              <div class="stat-label">Bitiruvchilar</div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4370.JPG" alt="Begzod Rajabov">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Begzod Rajabov</div>
+                <div class="teacher-subject">Matematika</div>
+                <div class="teacher-experience">Tajriba: 5 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">150+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="stat-card blue">
-              <div class="stat-number">100+</div>
-              <div class="stat-label">Olimpiada g'oliblari</div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4347.JPG" alt="Madina Ikromova">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Madina Ikromova</div>
+                <div class="teacher-subject">Rus tili</div>
+                <div class="teacher-experience">Tajriba: 16 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">1000+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="stat-card purple">
-              <div class="stat-number">1000+</div>
-              <div class="stat-label">Universitetga kirganlar</div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4364.JPG" alt="Shoxrux Imomov">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Shoxrux Imomov</div>
+                <div class="teacher-subject">Ingliz tili</div>
+                <div class="teacher-experience">Tajriba: 8 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">200+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4367.JPG" alt="Sanjar Maxmudov">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Sanjar Maxmudov</div>
+                <div class="teacher-subject">Fizika</div>
+                <div class="teacher-experience">Tajriba: 10 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">200+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4359.JPG" alt="Akmal Asurov">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Akmal Asurov</div>
+                <div class="teacher-subject">Ona tili</div>
+                <div class="teacher-experience">Tajriba: 8 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">300+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4357.JPG" alt="Ubaydullayev Shohruh">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Ubaydullayev Shohruh</div>
+                <div class="teacher-subject">Biologiya</div>
+                <div class="teacher-experience">Tajriba: 13 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">300+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4361.JPG" alt="Kutratov Otabek">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Kutratov Otabek</div>
+                <div class="teacher-subject">Tarix</div>
+                <div class="teacher-experience">Tajriba: 13 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">300+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="teacher-card carousel-item">
+              <div class="teacher-image">
+                <img src="./images/0I7A4355.JPG" alt="Hakimov Axtam">
+              </div>
+              <div class="teacher-info">
+                <div class="teacher-name">Hakimov Axtam</div>
+                <div class="teacher-subject">Kimyo</div>
+                <div class="teacher-experience">Tajriba: 6 yil</div>
+                <div class="teacher-stats">
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number orange">300+</div>
+                    <div class="teacher-stat-label">O'quvchilar</div>
+                  </div>
+                  <div class="teacher-stat">
+                    <div class="teacher-stat-number green">95%</div>
+                    <div class="teacher-stat-label">Muvaffaqiyat</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-btn prev-btn" id="teachersPrev">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next-btn" id="teachersNext">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="carousel-indicators" id="teachersIndicators"></div>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <!-- Results Section - Classrooms kabi 3 tadan ko'rinadi -->
+  <section id="results" class="results">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">
+          Bizning <span class="highlight">natijalarimiz</span>
+        </h2>
+        <p class="section-subtitle">O'quvchilarimizning ajoyib yutuqlari va muvaffaqiyatlari</p>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel-wrapper" id="resultsCarousel">
+          <div class="carousel-track" id="resultsTrack">
+            <!-- Result cards - 3 tadan ko'rinadi -->
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:53:14.jpg" alt="Diplom">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:53:24.jpg" alt="Sertifikat">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:53:29.jpg" alt="Diplom">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:53:39.jpg" alt="Diplom">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./images/IMAGE 2025-07-16 02:44:21.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:53:47.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:53:51.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./images/IMAGE 2025-07-16 02:48:43.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:57:17.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./images/IMAGE 2025-07-16 02:49:14.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./images/IMAGE 2025-07-16 02:49:31.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+
+             <!-- <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./image/IMAGE 2025-07-17 12:57:24.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div> -->
+
+            <div class="result-card carousel-item">
+              <div class="result-image">
+                <img src="./images/IMAGE 2025-07-16 02:49:58.jpg" alt="Matematika natijasi">
+              </div>
+              <div class="result-info">
+                <h4>Matematika</h4>
+                <p>C+</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="carousel-controls">
+          <button class="carousel-btn prev-btn" id="resultsPrev">
+            <i class="bi bi-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next-btn" id="resultsNext">
+            <i class="bi bi-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="carousel-indicators" id="resultsIndicators"></div>
+      </div>
+
+      <div class="results-stats">
+        <div class="results-stats-grid">
+          <div class="stat-card green">
+            <div class="stat-number">94%</div>
+            <div class="stat-label">Muvaffaqiyat darajasi</div>
+          </div>
+          <div class="stat-card orange">
+            <div class="stat-number">3000+</div>
+            <div class="stat-label">Bitiruvchilar</div>
+          </div>
+          <div class="stat-card blue">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Olimpiada g'oliblari</div>
+          </div>
+          <div class="stat-card purple">
+            <div class="stat-number">1000+</div>
+            <div class="stat-label">Universitetga kirganlar</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
@@ -859,7 +732,8 @@
 
       <div class="contact-content">
         <div class="map-container">
-          <img src="./images/Screenshot 2025-07-16 at 03.41.53.png" alt="">
+          <!-- <img src="./images/Screenshot 2025-07-16 at 03.41.53.png" alt="Location map"> -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d788.7681302223348!2d64.53740178114343!3d39.730614730648355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f501b0041a9a995%3A0x77213c826c218f5b!2sLider%20o&#39;quv%20markazi!5e1!3m2!1sen!2s!4v1752744784621!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
         <div class="contact-info">
@@ -874,7 +748,6 @@
                 <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
                 <div class="contact-details">
                   <strong>Manzil:</strong>
-                  <i class="bi bi-geo-alt-fill"></i>
                   <span>Buxoro viloyat Kogon shahar Do'stlik ko'chasi</span>
                 </div>
               </div>
@@ -886,7 +759,6 @@
                   <span>+998 93 080 55 72</span>
                 </div>
               </div>
-
 
               <div class="contact-item">
                 <div class="contact-icon"><i class="bi bi-clock-fill"></i></div>
@@ -909,111 +781,89 @@
   </section>
 
   <!-- Footer -->
- <footer class="footer">
-  <div class="container">
-    <div class="footer-content">
-      <div class="footer-section logo-section">
-        <div class="footer-logo">
-          <div class="logo-icon">
-            <!-- <svg width="40" height="40" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="45" height="45" rx="12" fill="#16a34a" />
-              <path d="M12 32V13h6l4 12 4-12h6v19h-4V19l-3 9h-2l-3-9v13h-4z" fill="white" />
-              <circle cx="35" cy="15" r="3" fill="#fbbf24" />
-            </svg> -->
-          </div>
-          <div class="footer-logo-text">
-            <span class="logo-main">Lider Veridex</span>
-            <span class="logo-sub">Academy</span>
-          </div>
-        </div>
-        <p class="footer-description">
-          Sifatli ta'lim va professional yondashuv bilan o'quvchilarning kelajagini qurish.
-        </p>
-      </div>
-
-      <div class="footer-section contact-section">
-        <h3 class="footer-heading">
-          <i style="color: white;" class="bi bi-telephone-fill"></i> Bog'lanish
-        </h3>
-        <div class="footer-contacts">
-          <div class="footer-contact-item">
-            <i style="color: white;" class="bi bi-telephone-fill contact-icon"></i>
-            <span>+998 93 080 55 72</span>
-          </div>
-          <div class="footer-contact-item">
-            <i style="color: white;" class="bi bi-geo-alt-fill contact-icon"></i>
-            <span>Buxoro viloyat Kogon shahar Do'stlik ko'chasi</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-section links-section">
-        <h3 class="footer-heading">
-          Tezkor havolalar
-        </h3>
-        <div class="footer-links">
-          <a href="#about">Biz haqimizda</a>
-          <a href="#classrooms">Dars xonalari</a>
-          <a href="#teachers">O'qituvchilar</a>
-          <a href="#results">Natijalar</a>
-        </div>
-      </div>
-
-      <div class="footer-section social-section">
-        <h3 class="footer-heading">
-          <i style="color: white;" class="bi bi-share-fill"></i> Ijtimoiy tarmoqlar
-        </h3>
-        <div class="footer-social">
-          <a href="https://t.me/lider_uquv_markazi" class="footer-social-link telegram" target="_blank">
-            <div class="social-icon-round">
-              <i class="bi bi-telegram"></i>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section logo-section">
+          <div class="footer-logo">
+            <div class="logo-icon">
+              <svg width="40" height="40" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="45" height="45" rx="12" fill="#16a34a" />
+                <path d="M12 32V13h6l4 12 4-12h6v19h-4V19l-3 9h-2l-3-9v13h-4z" fill="white" />
+                <circle cx="35" cy="15" r="3" fill="#fbbf24" />
+              </svg>
             </div>
-            <span>Telegram</span>
-          </a>
-          <a href="https://www.instagram.com/lider_uquv_markazi/" class="footer-social-link instagram" target="_blank">
-            <div class="social-icon-round">
-              <i class="bi bi-instagram"></i>
+            <div class="footer-logo-text">
+              <span class="logo-main">Lider Veridex</span>
+              <span class="logo-sub">Academy</span>
             </div>
-            <span>Instagram</span>
-          </a>
+          </div>
+          <p class="footer-description">
+            Sifatli ta'lim va professional yondashuv bilan o'quvchilarning kelajagini qurish.
+          </p>
+        </div>
+
+        <div class="footer-section contact-section">
+          <h3 class="footer-heading">
+            <i style="color: white;" class="bi bi-telephone-fill"></i> Bog'lanish
+          </h3>
+          <div class="footer-contacts">
+            <div class="footer-contact-item">
+              <i style="color: white;" class="bi bi-telephone-fill contact-icon"></i>
+              <span>+998 93 080 55 72</span>
+            </div>
+            <div class="footer-contact-item">
+              <i style="color: white;" class="bi bi-geo-alt-fill contact-icon"></i>
+              <span>Buxoro viloyat Kogon shahar Do'stlik ko'chasi</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-section links-section">
+          <h3 class="footer-heading">
+            Tezkor havolalar
+          </h3>
+          <div class="footer-links">
+            <a href="#about">Biz haqimizda</a>
+            <a href="#classrooms">Dars xonalari</a>
+            <a href="#teachers">O'qituvchilar</a>
+            <a href="#results">Natijalar</a>
+          </div>
+        </div>
+
+        <div class="footer-section social-section">
+          <h3 class="footer-heading">
+            <i style="color: white;" class="bi bi-share-fill"></i> Ijtimoiy tarmoqlar
+          </h3>
+          <div class="footer-social">
+            <a href="https://t.me/lider_uquv_markazi" class="footer-social-link telegram" target="_blank">
+              <div class="social-icon-round">
+                <i class="bi bi-telegram"></i>
+              </div>
+              <span>Telegram</span>
+            </a>
+            <a href="https://www.instagram.com/lider_uquv_markazi/" class="footer-social-link instagram" target="_blank">
+              <div class="social-icon-round">
+                <i class="bi bi-instagram"></i>
+              </div>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>© 2024 Lider Veridex Academy. Barcha huquqlar himoyalangan.</p>
+          <div class="footer-badges">
+            <span class="badge">Sifatli ta'lim</span>
+            <span class="badge">Professional yondashuv</span>
+          </div>
         </div>
       </div>
     </div>
+  </footer>
 
-    <div class="footer-bottom">
-      <div class="footer-bottom-content">
-        <p>© 2024 Lider Veridex Academy. Barcha huquqlar himoyalangan.</p>
-        <div class="footer-badges">
-          <span class="badge">Sifatli ta'lim</span>
-          <span class="badge">Professional yondashuv</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-  <!-- Google Maps API -->
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOuSU1mViNRiWsuSycMwglqdFrRdTnbkE&callback=initMap" async defer></script>
-  <script>
-    function initMap() {
-      // Toshkent koordinatalari (taxminiy markaz)
-      var toshkent = { lat: 41.3111, lng: 69.2401 };
-
-      // Xarita obyektini yaratish
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: toshkent,
-        zoom: 12,
-      });
-
-      // Marker qo'shish
-      var marker = new google.maps.Marker({
-        position: toshkent,
-        map: map,
-        title: 'Toshkent shahar'
-      });
-    }
-  </script> -->
-
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
