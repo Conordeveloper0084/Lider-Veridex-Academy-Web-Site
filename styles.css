@@ -1147,6 +1147,7 @@ img {
   font-size: 24px;
   font-weight: 700;
   color: rgb(40, 40, 255);
+  /* color: white; */
   display: block;
 }
 
@@ -1170,7 +1171,8 @@ img {
   align-items: center;
   gap: 8px;
   /* color: var(--primary-blue); */
-  color: rgb(25, 25, 255);
+  /* color: rgb(25, 25, 255); */
+  color: white;
 }
 
 .footer-heading i {
