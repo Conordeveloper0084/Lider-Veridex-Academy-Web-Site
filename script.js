@@ -97,7 +97,7 @@ function setupNavbarScroll() {
     } else {
       navbar.style.background = "rgba(255, 255, 255, 0.95)"
       navbar.style.backdropFilter = "blur(10px)"
-      navbar.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.08)"
+      navbar.style.boxShadow = "0 4px 20 twox rgba(0, 0, 0, 0.08)"
     }
 
     if (scrollTop > lastScrollTop && scrollTop > 200) {
@@ -114,6 +114,14 @@ function initializeCarousels() {
   Object.keys(carouselConfigs).forEach((carouselName) => {
     initializeCarousel(carouselName)
   })
+}
+
+function getCarouselGap(carouselName) {
+  const track = document.getElementById(`${carouselName}Track`)
+  if (!track) return 48
+  const computedStyle = window.getComputedStyle(track)
+  const gap = parseFloat(computedStyle.gap) || 48
+  return gap
 }
 
 function initializeCarousel(carouselName) {
@@ -242,7 +250,7 @@ function initializeDragFunctionality(carouselName, track) {
       if (items.length === 0) return
 
       const itemWidth = items[0].offsetWidth
-      const gap = 48
+      const gap = getCarouselGap(carouselName)
       const moveDistance = (itemWidth + gap) * config.itemsPerView
       const baseTranslate = -config.currentIndex * moveDistance
 
@@ -255,6 +263,7 @@ function initializeDragFunctionality(carouselName, track) {
 function createIndicators(carouselName, container) {
   if (!container) return
 
+  0
   const config = carouselConfigs[carouselName]
   const totalSlides = Math.ceil(config.totalItems / config.itemsPerView)
 
@@ -298,7 +307,7 @@ function updateCarouselPosition(carouselName) {
   if (items.length === 0) return
 
   const itemWidth = items[0].offsetWidth
-  const gap = 48
+  const gap = getCarouselGap(carouselName)
   const moveDistance = (itemWidth + gap) * config.itemsPerView
   const translateX = -config.currentIndex * moveDistance
 
@@ -348,7 +357,7 @@ function updateCarouselResponsiveness() {
     if (screenWidth <= 480) {
       config.itemsPerView = 1
     } else if (screenWidth <= 768) {
-      config.itemsPerView = 2
+      config.itemsPerView = 1
     } else {
       config.itemsPerView = 3
     }
