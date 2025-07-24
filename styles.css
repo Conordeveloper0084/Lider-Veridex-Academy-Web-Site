@@ -1534,6 +1534,10 @@ img {
     padding: 1rem;
   }
 
+  .map-container iframe{
+    width: 350px;
+  }
+
   .carousel-track {
     gap: 16px;
     padding: 0;
